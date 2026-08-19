@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Autoavaliação Comportamental</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f8f3f6;
+            color: #4f4050;
+            font-family: "Poppins";
+        }
+
+        .email-background {
+            width: 100%;
+            padding: 36px 16px;
+            background: #f8f3f6;
+        }
+
+        .container {
+            width: 680px;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid #f0e1e9;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(111, 65, 88, .09);
+        }
+
+        .header {
+            padding: 42px 48px 38px;
+            text-align: center;
+            background: #a85d80;
+            background-image: linear-gradient(135deg, #9d5376, #c77f9f);
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: #fff2f7;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #fff;
+            font: 400 34px/1.2 Georgia, "Times New Roman", serif;
+        }
+
+        .header p:last-child {
+            max-width: 500px;
+            margin: 14px auto 0;
+            color: #fff5f8;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .content {
+            padding: 42px 48px 20px;
+        }
+
+        .content h2,
+        .content h3 {
+            color: #6e3c58;
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: 400;
+        }
+
+        .content h2 {
+            margin: 0 0 14px;
+            font-size: 29px;
+            line-height: 1.25;
+        }
+
+        .content h3 {
+            margin: 0 0 14px;
+            font-size: 23px;
+            line-height: 1.3;
+        }
+
+        .text {
+            color: #625361;
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .text p {
+            margin: 0 0 16px;
+        }
+
+        .intro {
+            margin-bottom: 28px;
+        }
+
+        .section {
+            padding: 30px 0;
+            border-top: 1px solid #efe2e8;
+        }
+
+        .graph-card {
+            margin-top: 22px;
+            padding: 26px 24px;
+            background: #fffafb;
+            border: 1px solid #f0e1e8;
+            border-radius: 18px;
+        }
+
+        .note {
+            margin: 28px 0 10px;
+            padding: 18px 20px;
+            color: #755e6c;
+            font-size: 13px;
+            line-height: 1.6;
+            background: #faf7f2;
+            border-radius: 12px;
+        }
+
+        .footer {
+            padding: 30px 48px 36px;
+            text-align: center;
+            color: #806b78;
+            font-size: 13px;
+            line-height: 1.7;
+            background: #fbf6f8;
+            border-top: 1px solid #f0e3e9;
+        }
+
+        .footer p {
+            margin: 0 0 10px;
+        }
+
+        .footer a {
+            color: #965472;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .signature {
+            color: #6e3c58;
+            font: 18px Georgia, "Times New Roman", serif;
+        }
+
+        @media only screen and (max-width:720px) {
+            .email-background {
+                padding: 0 !important;
+            }
+
+            .container {
+                border: 0 !important;
+                border-radius: 0 !important;
+            }
+
+            .header,
+            .content,
+            .footer {
+                padding-left: 24px !important;
+                padding-right: 24px !important;
+            }
+
+            .header h1 {
+                font-size: 29px !important;
+            }
+
+            .content h2 {
+                font-size: 26px !important;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="email-background">
+        <div class="container">
+            <div class="header">
+                <h1>Resultado da sua Autoavaliação Comportamental</h1>
+            </div>
+
+            <main class="content">
+                <h2>Olá, ${escaparHtml(nome)}! 🌷</h2>
+                <div class="text intro">
+                    <p>Abaixo está a interpretação dos resultados da sua autoavaliação comportamental.</p>
+                </div>
+
+                <section class="section">
+                    <h3>Sua interpretação</h3>
+                    <div class="text">
+                        <p>${interpretacaoHtml}</p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3>Visão gráfica dos resultados</h3>
+                    <div class="text">
+                        <p>O gráfico abaixo apresenta as médias identificadas em cada grupo da sua autoavaliação.</p>
+                    </div>
+                    <div class="graph-card">
+                        <img src="cid:graficoResultado" alt="Gráfico da Autoavaliação Comportamental"
+                            style="display:block; width:100%; max-width:620px; height:auto; margin:0 auto;">
+                    </div>
+                </section>
+
+                <div class="note">Este material corresponde a uma autoavaliação comportamental.</div>
+            </main>
+
+            <footer class="footer">
+                <p class="signature"><strong>Maria Santana</strong></p>
+                <p><a href="https://www.instagram.com/terapiacom.mariaa/"
+                        target="_blank">Instagram</a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="https://wa.me/5579981105245"
+                        target="_blank">WhatsApp</a></p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
